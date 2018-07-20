@@ -583,3 +583,9 @@ message.channel.sendEmbed(embed);
     }
 
 });
+  
+  
+  
+  
+  
+  client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjDB2w.mAqnKBMaczgr4zjlp0KbIWvz020");
