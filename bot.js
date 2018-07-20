@@ -588,4 +588,12 @@ message.channel.sendEmbed(embed);
   
   
   
-  client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjDB2w.mAqnKBMaczgr4zjlp0KbIWvz020");
+  
+  
+  
+  
+  
+  
+  
+  
+  client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjP6RA.wn9tK-JRSOCc_Ca9pY923mvA4MY");  
