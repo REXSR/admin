@@ -172,7 +172,7 @@ client.on('message', msg => {
 
 }
 
- كود توب انفايت 
+ 
 
          const table = require('table')
 
