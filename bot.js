@@ -37,45 +37,64 @@ client.on('ready', () => {
 
 });
 
-client.on("message", message => {
 
-  let command = message.content.split(" ")[0];
 
-  if (command === "+mute") {
-
-          if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');
-
-                  if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **");
-
-  let user = message.mentions.users.first();
-
-  let modlog = client.channels.find('name', 'console');
-
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-
-  if (!modlog) return message.reply("**لا يوجد الروم المراد ارسال المعلومات له 'Mute-Log'**");
-
-  if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **');
-
-  const embed = new Discord.RichEmbed()
-
-    .setColor(0x00AE86)
-
-    .addField(' Mute ', ' | :white_check_mark: |')
-
-    .addField('تم اعطاء الميوت ل', `${user.username}#${user.discriminator} `)
-
-    .addField('السبب', '**تعكير نظام الشات**')
-
-    .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
-
-   message.channel.send({embed: embed});
-
-  if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+var dat = JSON.parse("{}");
+function forEachObject(obj, func) {
+    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
 }
+client.on("ready", () => {
+    var guild;
+    while (!guild)
+        guild = client.guilds.find("name", "SYSTEM SRB BOT")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        })
+    })
+})
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.find('name', 'wlc');
+    if (!channel) {
+        console.log("!channel fails");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('made it till here!');
+    var guild;
+    while (!guild)
+        guild = client.guilds.find("name", "wlc")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+                    console.log(3);
+                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
+ channel.send(` ♥ **تم دعوته من قبل ${Invite.inviter} ♥ `)            
+ }
+            dat[Inv] = Invite.uses;
+        })
+    })
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("message", message => {
 
   if (message.author.bot) return;
@@ -551,4 +570,24 @@ client.on('message', message => {
            }
 
 	  });
+
+client.on('message', msg =>{
+    let message=msg;
+    if(message.content.startsWith("bc")){
+        var args = message.content.split(' ').slice(1).join(' ');
+    msg.guild.members.forEach(m=>{
+        m.send(args.replace(/[user]/g,m)).catch();
+    if(message.attachments.first()){
+m.sendFile(message.attachments.first().url).catch();
+    }
+    })    ;
+    }
+});
+
+
+
+
+
+
+
 	 client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjP6RA.wn9tK-JRSOCc_Ca9pY923mvA4MY");  //اياكككك تلعب هنا لا تحط توكنك هنا
