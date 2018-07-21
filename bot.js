@@ -573,4 +573,4 @@ client.on('message', message => {
            }
 
      })
-     client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjP6RA.wn9tK-JRSOCc_Ca9pY923mvA4MY");  //اياكككك تلعب هنا لا تحط توكنك هنا
+     العميل . login ( "NDYzODM3MjAxMDkyOTY4NDQ4.DjP6RA.wn9tK-JRSOCc_Ca9pY923mvA4MY" )؛  // اياكككك تلعب هنا لا تحط توكنك هنا 
