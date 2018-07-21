@@ -488,11 +488,11 @@ client.on('message', message => {
 
     msg.delete();
 
-    })
 
-    })
 
-    }
+
+
+
 
     });
 
