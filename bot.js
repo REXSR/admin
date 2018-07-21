@@ -488,11 +488,11 @@ client.on('message', message => {
 
     msg.delete();
 
+    })
 
+    })
 
-
-
-
+    }
 
     });
 
@@ -532,6 +532,7 @@ client.on('message', function(msg) {
 
   });
 
+client.login(process.env.BOT_TOKEN);  //اياكككك تلعب هنا لا تحط توكنك هنا
 
 client.on('message', message => {
 
@@ -549,5 +550,5 @@ client.on('message', message => {
 
            }
 
-	 })
+	  });
 	 client.login("NDYzODM3MjAxMDkyOTY4NDQ4.DjP6RA.wn9tK-JRSOCc_Ca9pY923mvA4MY");  //اياكككك تلعب هنا لا تحط توكنك هنا
