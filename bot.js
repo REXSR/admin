@@ -51,7 +51,7 @@ client.on('message', msg => {
 });
  
 
-let autorole = JSON.parse(fs.readFileSync("./autoRole.json", "utf8"));
+let autorole = JSON.parse(fs.readFileSync("./autoRole.json", "457949142053027850"));
 var defaultmodrole = '❦ᎷᎬᎷᏴᎬᎡ❦';
 var autoRole;
 if(autorole[message.guild.id]){
@@ -74,6 +74,82 @@ fs.writeFile("./autoRole.json", JSON.stringify(autorole), (err) => {if (err) con
 
 
  
+
+
+
+
+
+client.on('message', message=>{
+
+    if (message.content ===  'cr-color'){
+
+              if(!message.channel.guild) return;
+
+            if (message.member.hasPermission('MANAGE_ROLES')){
+
+                setInterval(function(){})
+
+                  let count = 0;
+
+                  let ecount = 0;
+
+        for(let x = 1; x < 161; x++){
+
+            message.guild.createRole({name:x,
+
+            color: 'RANDOM'})
+
+            }
+
+            }
+
+    }
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    if (message.content === 'de-color'){
+
+                if (message.channel.guild){
+
+            if (message.member.hasPermission('MANAGE_ROLES')){
+
+                setInterval(function(){})
+
+                  let count = 0;
+
+                  let ecount = 0;
+
+        for(let x = 0; x < 161; x++){
+
+            message.guild.roles.find('name', x)
+
+      }
+
+                }
+
+        }else{
+
+            message.channel.sendMessage('⚠  This command only in servers')
+
+        }
+
+    }
+
+});
+
+
 
 
 
