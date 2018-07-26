@@ -14,21 +14,13 @@ client.user.setActivity('By:REX SRB BEDT YOO',{ type: 'WATCHING'})
   
 
   client.on('message',async message => {
-
 if(message.content === 'unbanall') {
-
 message.guild.fetchBans().then(ba => {
-
 ba.forEach(ns => {
-
 message.guild.unban(ns);
-
 });
-
 });
-
 }
-
 });
 
   
