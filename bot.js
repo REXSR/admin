@@ -57,23 +57,19 @@ var autoRole;
 if(autorole[message.guild.id]){
 var autoRole = autorole[message.guild.id].autoRole;
 }else{
-
 var autoRole = 'membres';
-
 }
 if(message.content.startsWith(prefix + "setautorole")){
-if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){return message.reply("x Vous n'avez pas les permissions dans ce serveur").catch(console.error);                                                                    
-                                                                        
+if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){return message.reply("x Vous n'avez pas les permissions dans ce serveur").catch(console.error);                                                                                                                                         
 }else{
-
 let args = message.content.split(' ').slice(1);
 if(!args) return message.channel.send('x Merci de specifier un rôle')
 autorole[message.guild.id] = {"autoRole": args.join(" ")};
 message.channel.send("Mon autoRole est "+ args.join(" ") + "");
 fs.writeFile("./autoRole.json", JSON.stringify(autorole), (err) => {if (err) console.error(err);});
-
 }
 
+ 
 }
 
 
