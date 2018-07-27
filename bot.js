@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = '+'
 client.on('ready', () => {
  console.log('Logged in as ${client.user.tag}!');
-client.user.setActivity('By:REX SRB BEDT YOO',{ type: 'WATCHING'}) 
+client.user.setActivity('By:REX SRB BEST YOO',{ type: 'WATCHING'}) 
 });
 
 
@@ -51,103 +51,60 @@ client.on('message', msg => {
 });
  
 
-let autorole = JSON.parse(fs.readFileSync("./autoRole.json", "457949142053027850"));
-var defaultmodrole = '❦ᎷᎬᎷᏴᎬᎡ❦';
-var autoRole;
-if(autorole[message.guild.id]){
-var autoRole = autorole[message.guild.id].autoRole;
-}else{
-var autoRole = 'membres';
+
+
+
+
+
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('!Mhstr')){
+ if (message.author.id !== '389090790984515594') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+message.channel.sendMessage('جار ارسال الرسالة |✅')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
 }
-if(message.content.startsWith(prefix + "setautorole")){
-if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){return message.reply("x Vous n'avez pas les permissions dans ce serveur").catch(console.error);                                                                                                                                         
-}else{
-let args = message.content.split(' ').slice(1);
-if(!args) return message.channel.send('x Merci de specifier un rôle')
-autorole[message.guild.id] = {"autoRole": args.join(" ")};
-message.channel.send("Mon autoRole est "+ args.join(" ") + "");
-fs.writeFile("./autoRole.json", JSON.stringify(autorole), (err) => {if (err) console.error(err);});
-}
-
- 
-}
-
-
- 
-
-
-
-
-
-client.on('message', message=>{
-
-    if (message.content ===  'cr-color'){
-
-              if(!message.channel.guild) return;
-
-            if (message.member.hasPermission('MANAGE_ROLES')){
-
-                setInterval(function(){})
-
-                  let count = 0;
-
-                  let ecount = 0;
-
-        for(let x = 1; x < 161; x++){
-
-            message.guild.createRole({name:x,
-
-            color: 'RANDOM'})
-
-            }
-
-            }
-
-    }
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-    if (message.content === 'de-color'){
-
-                if (message.channel.guild){
-
-            if (message.member.hasPermission('MANAGE_ROLES')){
-
-                setInterval(function(){})
-
-                  let count = 0;
-
-                  let ecount = 0;
-
-        for(let x = 0; x < 161; x++){
-
-            message.guild.roles.find('name', x)
-
-      }
-
-                }
-
-        }else{
-
-            message.channel.sendMessage('⚠  This command only in servers')
-
-        }
-
-    }
-
 });
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+      
+
+                
+
+
+
+        
+
+    
+
+
 
 
 
