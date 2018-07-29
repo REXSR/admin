@@ -296,6 +296,7 @@ var dat = JSON.parse("{}");
 function forEachObject(obj, func) {
     Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
 }
+
 client.on("ready", () => {
     var guild;
     while (!guild)
@@ -307,15 +308,18 @@ client.on("ready", () => {
         })
     })
 })
+
 client.on("guildMemberAdd", (member) => {
     let channel = member.guild.channels.find('name', 'ｃｈａｔ') 
                                              
         console.log("!channel fails");
         return;
     }
+          
     if (member.id == client.user.id) {
         return;
     }
+
     console.log('made it till here!');
     var guild;
     while (!guild)
