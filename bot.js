@@ -309,7 +309,7 @@ client.on("ready", () => {
     })
 })
 
-client.on("guildMemberAdd", (member) => {
+client.on("guildMemberAdd",(member) => {
     let channel = member.guild.channels.find('name', 'ｃｈａｔ') 
                                              
         console.log("!channel fails");
@@ -319,7 +319,6 @@ client.on("guildMemberAdd", (member) => {
     if (member.id == client.user.id) {
         return;
     }
-
     console.log('made it till here!');
     var guild;
     while (!guild)
