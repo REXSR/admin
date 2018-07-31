@@ -165,7 +165,6 @@ client.on('message', message => {
         } else {
             h = message.member
         }
-               moment.locale('ar-TN');
       var id = new  Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL) 
     .setColor("#707070")
