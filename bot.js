@@ -309,8 +309,7 @@ client.on("ready", () => {
     })
 })
 
-@here
-   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+
   
   client.on('message', async message => {
             if(message.content.includes('discord.gg')){ 
