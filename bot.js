@@ -378,7 +378,6 @@ client.on('ready', () => {
  client.on("guildMemberRemove", member => {
   member.createDM().then(function (channel) {
   return channel.send(`حياكم في افضل كلان كلان SRB `)
-  ${member}  
 }).catch(console.error)
 
 })
