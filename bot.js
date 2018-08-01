@@ -53,7 +53,6 @@ client.on('message', msg => {
 
             
 client.on('message', function(msg) {
-    const prefix = '^'
     if(msg.content.startsWith ('server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
@@ -366,6 +365,13 @@ client.on('message', message => {
         message.channel.sendEmbed(embed)
     }
 });
+
+
+
+
+
+
+
 
 
 client.on('ready', () => { 
