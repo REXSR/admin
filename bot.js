@@ -367,21 +367,8 @@ client.on('message', message => {
     }
 });
 
-[ @everyone  ] , [ @here  ]
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const bot = new Discord.Client();
-client.on('ready', () => {
-  console.log('╔[════════════════════════════════════]╗');
-  console.log('            ╔[════════════]╗')
-  console.log('              Bot Is Online')
-  console.log('            ╚[════════════]╝')
-  console.log('╚[════════════════════════════════════]╝')
-});
-
-console.log("Welcome Again !");
- 
+client.on('ready', () => { 
  client.on("guildMemberRemove", member => {
   member.createDM().then(function (channel) {
   return channel.send(` 
