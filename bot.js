@@ -377,29 +377,16 @@ client.on('message', message => {
 client.on('ready', () => { 
  client.on("guildMemberRemove", member => {
   member.createDM().then(function (channel) {
-  return channel.send(` 
-
-
-//اكتب يلي تبيه عشان يرسلو لشخص
-
-
+  return channel.send(`حياكم في افضل كلان كلان SRB `)  
  ${member}  
-حياكم في افضل كلان كلان SRB`)
 }).catch(console.error)
 
 })
  
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
-  return channel.send(` 
-
-
-
-//اكتب يلي تبيه عشان يرسلو لشخص
-
-
+  return channel.send(`حياكم في افضل كلان كلان SRB `) 
  ${member}  
-حياكم في افضل كلان كلان SRB `) 
 }).catch(console.error)
 })
 
