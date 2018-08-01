@@ -388,7 +388,7 @@ client.on("guildMemberAdd", member => {
   return channel.send(`حياكم في افضل كلان كلان SRB `) 
  ${member}  
 }).catch(console.error)
-})
+});
 
 
 
