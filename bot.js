@@ -377,8 +377,8 @@ client.on('message', message => {
 client.on('ready', () => { 
  client.on("guildMemberRemove", member => {
   member.createDM().then(function (channel) {
-  return channel.send(`حياكم في افضل كلان كلان SRB `)  
- ${member}  
+  return channel.send(`حياكم في افضل كلان كلان SRB `)
+  ${member}  
 }).catch(console.error)
 
 })
@@ -386,7 +386,7 @@ client.on('ready', () => {
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`حياكم في افضل كلان كلان SRB `) 
- ${member}  
+  ${member}  
 }).catch(console.error)
 });
 
