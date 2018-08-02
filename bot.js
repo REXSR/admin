@@ -368,34 +368,22 @@ client.on('message', message => {
 
 
 
-
-
-
-
-
-
-client.on('ready', () => { 
- client.on("guildMemberRemove", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`حياكم في افضل كلان كلان SRB `)
-}).catch(console.error)
-
-})
- 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`حياكم في افضل كلان كلان SRB `) 
-}).catch(console.error)
-});
-
-
 client.on('message', message => {
+
     if (message.content.startsWith("invites")) {
+
     message.guild.fetchInvites()
+
     .then(invites => message.channel.send(`انت جبت   ${invites.find(invite => invite.inviter.id === message.author.id).uses} عضو لهاذا السيرفر`))
 
     }
+
 });
+
+ 
+
+
+
 
 
 
