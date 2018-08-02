@@ -467,7 +467,6 @@ client.on('message', async message => {
 });
 
 const db = require('quick.db')
-const prefix = '+';
 client.on('message', async message => {
    if(message.content.startsWith(prefix + "credits")) {
  let args = message.content.split(' ').slice(1);
