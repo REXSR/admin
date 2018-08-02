@@ -473,7 +473,6 @@ client.on('message', async message => {
 var user = message.mentions.users.first() || message.author;
         var balance = await db.fetch(`userBalance_${user.id}`)
         if (balance === null) balance =
-        .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
         .setColor('#ffffff')
         .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
         message.channel.send(embed)
