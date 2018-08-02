@@ -473,7 +473,6 @@ client.on('message', async message => {
 var user = message.mentions.users.first() || message.author;
         var balance = await db.fetch(`userBalance_${user.id}`)
         if (balance === null) balance =
-        var embed = new Discord.RichEmbed()
         .setTitle('Coin Balance')
         .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
         .setColor('#ffffff')
