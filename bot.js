@@ -466,19 +466,67 @@ client.on('message', async message => {
 }
 });
 
-const db = require('quick.db')
-client.on('message', async message => {
-   if(message.content.startsWith(prefix + "credits")) {
- let args = message.content.split(' ').slice(1);
-var user = message.mentions.users.first() || message.author;
-        var balance = await db.fetch(`userBalance_${user.id}`)
-        if (balance === null) balance =
-        .setColor('#ffffff')
-        .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
-        message.channel.send(embed)
-}
-});
 
+   
+client.on('message', message => {
+            if (message.content.startsWith("السلام عليكم")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**وعليكم السلام **', ' ! ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+            }
+ });
+    client.on('message', message => {
+            if (message.content.startsWith("الكلام")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField ('**الرد **', ' ! ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+            }
+ });
+
+
+@everyone 
+
+   
+
+client.on('message', message => {
+
+            if (message.content.startsWith("السلام عليكم")) {
+
+     let embed = new Discord.RichEmbed()
+
+.setThumbnail(message.author.avatarURL)
+
+.addField ('**وعليكم السلام **', ' ! ')
+
+.setColor('#7d2dbe')
+
+  message.channel.sendEmbed(embed);
+
+            }
+
+ });
+
+    client.on('message', message => {
+
+            if (message.content.startsWith("باك")) {
+
+     let embed = new Discord.RichEmbed()
+
+.setThumbnail(message.author.avatarURL)
+
+.addField ('**ولكم باك 😘**', ' ! ')
+
+.setColor('#7d2dbe')
+
+  message.channel.sendEmbed(embed);
+
+            }
+
+ });
 
 
 
