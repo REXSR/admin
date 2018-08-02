@@ -469,26 +469,25 @@ client.on('message', async message => {
 
    
 client.on('message', message => {
-            if (message.content.startsWith("السلام عليكم")) {
+            if (message.content.startsWith(".")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**وعليكم السلام **', ' ! ')
+.addField ('**خير وش تبي**', ' ! ')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
             }
  });
     client.on('message', message => {
-            if (message.content.startsWith("الكلام")) {
+            if (message.content.startsWith("ترحيب")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**الرد **', ' ! ')
+.addField ('```ᎳᎬᏞCᎤᎷ TᎤ ꕷᎡB```', ' ! ')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
             }
  });
 
 
-@everyone 
 
    
 
