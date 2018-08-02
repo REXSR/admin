@@ -434,11 +434,10 @@ client.on('message', message => {
 
  
 const ms = require('ms')
-
 client.on('message', async message => {
    if(message.content.startsWith(prefix + "daily")) {
     let cooldown = 8.64e+7,
-    amount = 2500
+    amount = 250
     let lastDaily = await db.fetch(`lastDaily_${message.author.id}`)
     try {
     db.fetch(`userBalance_${message.member.id}`).then(bucks => {
@@ -467,7 +466,23 @@ client.on('message', async message => {
 }
 });
 
+const db = require('quick.db')
+const prefix = '+';
+client.on('message', async message => {
+   if(message.content.startsWith(prefix + "credits")) {
+ let args = message.content.split(' ').slice(1);
+var user = message.mentions.users.first() || message.author;
+        var balance = await db.fetch(`userBalance_${user.id}`)
+        if (balance === null) balance =
+        var embed = new Discord.RichEmbed()
+        .setTitle('Coin Balance')
+        .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
+        .setColor('#ffffff')
+        .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
+        message.channel.send(embed)
 
+}
+});
 
 
 
