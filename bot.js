@@ -529,7 +529,14 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+    if (message.content.startsWith("invites")) {
 
+    message.guild.fetchInvites()
+    .then(invites => message.channel.send(`**:busts_in_silhouette:  جبت      [${invites.find(invite => invite.inviter.id === message.author.id)}]    :calling:   عضو لهذا السيرفر    `))
+         
+    }
+});
 
 
 
