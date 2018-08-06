@@ -114,41 +114,100 @@ if (message.content.startsWith("ban")) {
 });
 
  
-
-
-
-
 client.on('message', message => {
-    if (message.content.startsWith("رابط")) 
-{
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 100,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-    const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
-                .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(`
-**
+if (message.content.startsWith(prefix + 'help')) { 
 
----------------------
--[${message.guild.name}]  هذا هو رابط سيرفر
----------------------
--هذا الرابط صالح ل 100 مستخدم فقط
----------------------
--هذا الرابط صالح لمده 24 ساعه فقط
----------------------
-**`)
-      message.author.sendEmbed(Embed11)
+ **__وصف عن البوت__**
+**
+:gem:  البوت فيه كثير ميزات حلوة و جميلة
+ ا:rocket: البوت يعمل 24 ساعه 
+**
+        ***__General orders__***
+**
+『!allbots/لعرض جميع البوتات الي بالسيرفر』
+『!server/يعرض لك معلومات عن السيرفر』
+『!bot/يعرض لك كل معلومات البوت』
+『!count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات』
+『!invites/ يعرض لك  عدد انفايتاتك بالسيرفر 』
+『!invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 』
+『!rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها』
+『!roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل』
+『!members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص』
+『!id/معلومات عنك』
+『!profile/عرض بروفايل حقك』
+『!voice /  يوم لك بكتابه مجموع عدد الاشخاص الموجودين برومات』
+『!avatar/صورتك او صورة الي تمنشنو』
+『!discrim/كود يضهر لك الاشخاص نفس تاقك』
+『!inv/لدعوة البوت الى سيرفرك』
+『!support/سيرفر الدعم』
+『!contact/ارسال اقتراح او لمراسلة صاحب البوت』
+**
+  `
+,`
+        ***__Administrative Orders__***
+**
+『!move @user /  لسحب الشخص الى روومك』
+『!voiceonline /  لتفعيل خاصيه فويس اونلاين يسحب عدد الاشخاص موجودين برومات』
+『!bc / رسالة جماعية الى كل اعضاء السيرفر』
+『!role @user <rank> / لأعطاء رتبة لعضو معين』
+『!roleremove @user <rank> / لازالة الرتبة من شخص معين』
+『!role all <rank> / لأعطاء رتبة للجميع』
+『!role humans <rank> / لأعطاء رتبة للاشخاص فقط』
+『!role bots <rank> / لأعطاء رتبة لجميع البوتات』
+『!clear / مسح الشات』
+『!mute @user <reason> / اعطاء العضو ميوت لازم رتبة <Muted>』
+『!unmute @user / لفك الميوت عن الشخص 』
+『!kick @user <reason> / طرد الشخص من السيرفر』
+『!ban @user <reason> / حضر الشخص من السيرفر』
+『❖!ccolors <number> / ينشا لك الوان مع كم الوان تبي』
+`]
+    let page = 1;
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+    message.author.sendEmbed(embed).then(msg => {
+        msg.react('◀').then( r => {
+            msg.react('▶')
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+      
+      page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+}); 
+client.on('message', message => {
+     if (message.content === (prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#8650a7")
+  .addField("Done" , " تــــم ارســالك في الخــاص")
+  message.channel.sendEmbed(embed);
     }
 });
+
+
+
+
+
+
+
 
 
 
@@ -184,7 +243,7 @@ client.on('message', message => {
     .setColor("#707070")
     .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
     .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-    .setFooter(`SRB Bot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
+    .setFooter(`Nony Bot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
     .setThumbnail(heg.avatarURL);
     message.channel.send(id)
 }       
