@@ -116,8 +116,8 @@ if (message.content.startsWith("ban")) {
  
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { 
-
- **__وصف عن البوت__**
+let pages = [`
+ ***__وصف عن البوت__***
 **
 :gem:  البوت فيه كثير ميزات حلوة و جميلة
  ا:rocket: البوت يعمل 24 ساعه 
