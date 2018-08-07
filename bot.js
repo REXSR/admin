@@ -119,6 +119,7 @@ if (message.content.startsWith(prefix + 'help')) {
 let pages = [`
  ***__وصف عن البوت__***
 **
+البوت فيه مانع الجحفله
 :gem:  البوت فيه كثير ميزات حلوة و جميلة
  ا:rocket: البوت يعمل 24 ساعه 
 **
@@ -290,7 +291,7 @@ if (message.author.id === client.user.id) return;
 if (message.guild) {
 let embed = new Discord.RichEmbed()
 let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc2') {
+if(message.content.split(' ')[0] == prefix + 'bc') {
 if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
 if (!args[1]) {
 return;
@@ -303,61 +304,15 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return;
       .setColor('RANDOM')
       m.sendMessage(args)
   });
-         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
-  const AziRo = new Discord.RichEmbed()   
-  .setColor('RANDOM')
-  message.channel.sendEmbed(AziRo);          
-}
-} else {
-  return;
-}
-});
-
-client.on("message", message => {
-            if (message.content.startsWith(prefix + "bc3")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
+        
 
 
-client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc4")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
 
 
-var dat = JSON.parse("{}");
-function forEachObject(obj, func) {
-    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
-}
 
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "SRB CLAN")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        })
-    })
-})
+
+
+
 
 
   
@@ -405,7 +360,7 @@ client.on("ready", () => {
 client.on('message', message => {
      if (message.author.bot) return;
     if (!message.channel.guild) return;
-    if (message.content.startsWith(prefix + 'mb')) {
+    if (message.content.startsWith(prefix + 'members')) {
         if (!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
             .setColor('RANDOM')
@@ -427,19 +382,7 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
 
-    if (message.content.startsWith("invites")) {
-
-    message.guild.fetchInvites()
-
-    .then(invites => message.channel.send(`انت جبت   ${invites.find(invite => invite.inviter.id === message.author.id).uses} عضو لهاذا السيرفر`))
-
-    }
-
-});
-
- 
 
 
 
@@ -531,20 +474,12 @@ client.on('message', message => {
             if (message.content.startsWith(".")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField ('**خير وش تبي**', ' ! ')
+.addField ('**ارحبء**', '@user')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
             }
  });
-    client.on('message', message => {
-            if (message.content.startsWith("ترحيب")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField ('```ᎳᎬᏞCᎤᎷ TᎤ ꕷᎡB```', ' ! ')
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-            }
- });
+
 
 
 
@@ -558,7 +493,7 @@ client.on('message', message => {
 
 .setThumbnail(message.author.avatarURL)
 
-.addField ('**وعليكم السلام **', ' ! ')
+.addField ('**وعليكم السلام **', '@user')
 
 .setColor('#7d2dbe')
 
@@ -576,7 +511,7 @@ client.on('message', message => {
 
 .setThumbnail(message.author.avatarURL)
 
-.addField ('**ولكم باك 😘**', ' ! ')
+.addField ('**ولكم باك 😘**', '@user')
 
 .setColor('#7d2dbe')
 
@@ -588,14 +523,7 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-    if (message.content.startsWith("invites")) {
 
-    message.guild.fetchInvites()
-    .then(invites => message.channel.send(`**:busts_in_silhouette:  جبت      [${invites.find(invite => invite.inviter.id === message.author.id)}]    :calling:   عضو لهذا السيرفر    `))
-         
-    }
-});
 
 
 
