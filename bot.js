@@ -558,4 +558,4 @@ client.on('message', message => {
 
 
 
-client.login(NDYzODM3MjAxMDkyOTY4NDQ4.DkKwcA.UWKfp85p6z3vzphoauTTgrweaEU);  //اياكككك تلعب هنا لا تحط توكنك هنا
+client.login(NDYzODM3MjAxMDkyOTY4NDQ4DkKwcAUWKfp85p6z3vzphoauTTgrweaEU);  //اياكككك تلعب هنا لا تحط توكنك هنا
