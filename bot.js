@@ -23,7 +23,7 @@ if (message.content === 'inv') {
  
  
 client.on('message', message => {
-     if (message.content === "inv2") {
+     if (message.content === "inv") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -74,7 +74,7 @@ client.on("message", message => {
 ***__وصف عن البوت__***
 **
 البوت فيه مانع الجحفله
-wlcالبوت فيه خاصية الترحيب لازم تسوي روم تسميه
+فيه ايضا مانع نشر روابط
 **
 ***__Bot orders__***
 **
