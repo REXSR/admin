@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "!"
@@ -12,6 +11,12 @@ client.on('ready', () => {
     client.user.setActivity("!inv || !help",{type: 'WATCHING'})
 
 });
+
+
+
+
+
+
 
 
 
