@@ -1,6 +1,3 @@
-السورس الاساسي مدمج مع 
-
-واتشينق
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
