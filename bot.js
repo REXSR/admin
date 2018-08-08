@@ -106,14 +106,7 @@ message.author.sendEmbed(embed)
 
 
 
-       client.on('message', message => {
-if(message.content === prefix + inv');
-let embed = new Discord.RichEmbed ()
-embed.setTitle("** Click To Invite This BOT **")
-.setURL("https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=1");
-message.channel.sendEmbed(embed);
-}
-});
+
 
 
 
