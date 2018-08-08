@@ -98,7 +98,22 @@ message.author.sendEmbed(embed)
 
 
 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+        message.delete()
+      message.channel.sendMessage("", {embed: {
+        title: "لا تنشر",
+        color: 0x06DF00,
+        description: "يمنع النشر في هذا السيرفر",
+        footer: {
+          text: "By REX"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
 
+     
+});
 
 
 
