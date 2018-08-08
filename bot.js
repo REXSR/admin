@@ -321,7 +321,7 @@ client.on('message', message => {
   
 })
 
-clint.on ("guildMemberRemove", member => {
+client.on ("guildMemberRemove", member => {
    
 })
 
