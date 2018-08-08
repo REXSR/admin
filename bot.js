@@ -8,13 +8,13 @@ client.on('ready', () => {
 
 client.on('ready', () => {
 
-    client.user.setActivity("!inv || !help",{type: 'WATCHING'})
+    client.user.setActivity("!inv || !help",{type: 'streaming'})
 
 });
 
 client.on('message', message => {
   if (true) {
-if (message.content === '.invite') {
+if (message.content === 'inv') {
       message.author.send('   https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=1  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
  
     }
@@ -23,7 +23,7 @@ if (message.content === '.invite') {
  
  
 client.on('message', message => {
-     if (message.content === ".invite") {
+     if (message.content === "inv2") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
