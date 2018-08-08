@@ -89,7 +89,9 @@ client.on("message", message => {
 『mute』
 『unmute』
 『unbanall』
-『warn』
+『credit』
+『daily』
+『ping』
 **       
 `)
 message.author.sendEmbed(embed)
