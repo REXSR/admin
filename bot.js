@@ -1,10 +1,24 @@
+السورس الاساسي مدمج مع 
+
+واتشينق
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = "!"
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setActivity('!help', { type: 'streaming' })
+
 });
 
+client.on('ready', () => {
+
+    client.user.setActivity("!inv || !help",{type: 'WATCHING'})
+
+});
+
+
+
+ 
 
 
 client.on("message", msg => {
@@ -49,18 +63,14 @@ wlcالبوت فيه خاصية الترحيب لازم تسوي روم تسمي
 『support』
 『inv』
 『members』
-『profile』
 『ban』
 『kick』
 『clear』
 『mute』
 『unmute』
-『』
-『』
-『』
-『』
-**
-        
+『unbanall』
+『warn』
+**       
 `)
 message.author.sendEmbed(embed)
 }
@@ -95,12 +105,12 @@ message.author.sendEmbed(embed)
 
 
        client.on('message', message => {
-                if(message.content === prefix + "inv") {
+                if(message.content === prefix + inv'); {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** Click To Invite This BOT **")
                     .setURL("https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=1");
                    message.channel.sendEmbed(embed);
-                  }
+}
 });
 
 
