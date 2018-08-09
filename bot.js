@@ -16,7 +16,7 @@ client.on('message', message => {
   if (true) {
 if (message.content === 'inv') {
       message.author.send('   https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=1  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
- 
+
     }
    }
   });
@@ -343,7 +343,7 @@ client.on('message',message =>{
   var embed = new Discord.RichEmbed()
   .setColor("#000000")
   .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
-  .setThumbnail("https://i.imgur.com/OM00xyh.png")
+  .setThumbnail("https://cdn.discordapp.com/attachments/470678787252813844/477229910486941725/PicsArt_08-02-09.08.16.jpg")
            message.channel.send({ embed: embed });
   });
     }
