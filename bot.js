@@ -10,11 +10,7 @@ client.on('ready', () => {
     client.user.setActivity("By:REX || !help",{type: 'streaming'})
 });
 
-    
-  
- 
- 
-    
+
 
 
 
