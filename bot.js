@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('ready', () => {
 
-    client.user.setActivity("SOON || قريبا",{type: 'streaming'})
+    client.user.setActivity("By:REX || !help",{type: 'streaming'})
 
 });
 
