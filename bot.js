@@ -81,8 +81,8 @@ members تبي اذا دخل عضو يعطي رتبة سوي رتبة اسمه
 『mute』
 『unmute』
 『topinvite』
-『』
-『』
+『bc』
+『bc1』
 **       
 `)
 message.author.sendEmbed(embed)
@@ -460,23 +460,6 @@ Server Count: __${guild.memberCount}__**`)
 
 
 
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('id', '471972617310699530').setName("W");
-client.channels.find('id', '471972617310699530').setName("We");
-client.channels.find('id', '471972617310699530').setName("Wel");
-client.channels.find('id', '471972617310699530').setName("Welc");
-client.channels.find('id', '471972617310699530').setName("Welco");
-client.channels.find('id', '471972617310699530').setName("Welcom");
-client.channels.find('id', '471972617310699530').setName("Welcome");
-client.channels.find('id', '471972617310699530').setName("Welcome T");
-client.channels.find('id', '471972617310699530').setName("Welcome To");
-client.channels.find('id', '471972617310699530').setName("Welcome To S");
-client.channels.find('id', '471972617310699530').setName("Welcome To SR");
-client.channels.find('id', '471972617310699530').setName("Welcome To SRB");
-client.channels.find('id', '471972617310699530').setName("Welcome To SRB");
-  }, 3000);
-});
 
 
 
