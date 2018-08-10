@@ -429,8 +429,6 @@ Server Count: __${guild.memberCount}__**`)
 
 
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
 client.on("ready", async  => {
 setInterval(function(){
 client.channels.find('id', '471972617310699530').setName("W");
