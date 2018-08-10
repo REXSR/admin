@@ -481,8 +481,6 @@ const misaka = new Set();
 
 
 
-const Discord = require("discord.js");
-const bot = new Discord.Client();
 const jimp = require('jimp');   
 const canvas = require("canvas");
 
@@ -493,7 +491,7 @@ const canvas = require("canvas");
 
 
 const sWlc = {}
-const premium = ['389090790984515594']
+const premium = ['463837201092968448']
 client.on('message', message => {
 var prefix = "!";
 if(message.channel.type === "dm") return;
@@ -519,7 +517,7 @@ client.on("guildMemberAdd", member => {
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', sChannel);
+    let welcomer = member.guild.channels.find('name', welcome);
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
