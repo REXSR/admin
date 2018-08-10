@@ -7,18 +7,11 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-
     client.user.setActivity("By:REX || !help",{type: 'streaming'})
-
 });
 
-client.on('message', message => {
-  if (true) {
-if (message.content === 'inv') {
-      message.author.send('https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=1|تفضل ربط البوت').catch(e => console.log(e.stack));
-    }
-   }
-  });
+    
+  
  
  
     
@@ -62,18 +55,18 @@ client.on("message", message => {
 
 ***__وصف عن البوت__***
 **
-البوت فيه مانع الجحفله
-فيه ايضا مانع نشر روابط
+فيه مانع نشر روابط
 wlc تبي تسوي الترحيب سوي شات اسمه 
 members تبي اذا دخل عضو يعطي رتبة سوي رتبة اسمه
 في ترحيب بالخاص 
 وفي ايضأ مانع السبام اذا حوال يسوي سبام يعطيه ميوت شات
+سيتم اضافة اوامر جديده قريبا باذن الله 
 **
 ***__Bot orders__***
 **
 『ping』
 『id』
-『support』
+『support』 SOON قريبا
 『inv』
 『ban』
 『kick』
@@ -81,7 +74,6 @@ members تبي اذا دخل عضو يعطي رتبة سوي رتبة اسمه
 『mute』
 『unmute』
 『topinvite』
-『bc』
 『bc1』
 **       
 `)
@@ -354,11 +346,8 @@ client.on('message', message => {
  client.on ('guildMemberAdd', member => {
    var role = member.guild.roles.find ('name', 'members');
    member.addRole (role);
-  
 })
-
-client.on ('guildMemberRemove', member => {
-   
+client.on ('guildMemberRemove', member => { 
 })
 
 
@@ -619,7 +608,28 @@ client.on('message', message => {
        }
    });
 
-
+client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
+   let embed = new Discord.RichEmbed()
+    let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc1') {
+    if (!args[1]) {
+return;
+}
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+            var bc = new Discord.RichEmbed()
+            .addField(' » الرسالة : ', args)
+            .setColor('#ff0000')
+            // m.send(`[${m}]`);
+            m.send(`${m}`,{embed: bc});
+        });
+    }
+    } else {
+        return;
+    }
+});
 
 
 
