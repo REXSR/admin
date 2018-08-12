@@ -282,10 +282,8 @@ client.on('message', message => {
 
 client.on('message', message => {
         let reason = message.content.split(' ').slice(2).join(' ')
-        let muterole = message.guild.roles.find('name', 'muted')
         if(message.content.startsWith(prefix + 'mute')) {
             if(!men) return message.channel.send("**منشن العضو**");
-            if(!reason) return message.channel.send("**Do you want me to mute " + men.username + " with no reason ?, `Ex. #mute @REX` or just use `none` for no reason **`")
             if(!muterole) {
                 message.guild.createRole({name: 'muted', color:"#505f74", permissions: [1115136]})
             }
