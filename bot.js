@@ -649,10 +649,10 @@ if(!credits[message.author.id]) credits[message.author.id] = {
 let userData = credits[message.author.id];
 let m = userData.credits;lp
 fs.writeFile('./creditsCode.json', JSON.stringify(credits), (err) => {
-  });
+});
   credits[message.author.id] = {
       credits: m + 0.5,
-  }
+}
     if(message.content.startsWith(prefix + 'credit' || prefix + 'credits')) {
 message.channel.send('**${message.author.username}, your balance is \`${userData.credits}``');
 }
