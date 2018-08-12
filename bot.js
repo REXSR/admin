@@ -654,13 +654,13 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
   credits[message.author.id] = {
       credits: m + 0.5,
   }
-    if(message.content.startsWith(prefix + "%credit" || prefix + "credits")) {
-message.channel.send(**${message.author.username}, your 💳 balance is \`${userData.credits}``.);
+    if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
+message.channel.send('**${message.author.username}, your 💳 balance is \`${userData.credits}``');
 }
 });
 client.on('message', async message => {
     let amount = 250;
-    if(message.content.startsWith(prefix + "%daily")) {
+    if(message.content.startsWith(prefix + "daily")) {
     if(message.author.bot) return;
     if(coolDown.has(message.author.id)) return message.channel.send(⏱ | ${message.author.username}, your daily 💴 credits refreshes in ``1 Day``.);
     let userData = credits[message.author.id];
@@ -671,7 +671,7 @@ client.on('message', async message => {
     fs.writeFile("./creditsCode.json", JSON.stringify(userData.credits + amount), (err) => {
     if (err) console.error(err);
     });
-    message.channel.send(🏧 | ${message.author.username}, you received your 💴 ${amount} credits!**`).then(() => {
+    message.channel.send( | ${message.author.username}, you received your 💴 ${amount} credits!**`).then(() => {
         coolDown.add(message.author.id);
     });
     setTimeout(() => {
