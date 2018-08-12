@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "!"
+const prefix = '!'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -19,8 +19,7 @@ client.on('ready', () => {
 
 
 client.on("message", msg => {
-           var prefix = "!";
-  if(msg.content.startsWith (prefix + "id")) {
+  if(msg.content.startsWith (prefix + '!id')) {
     if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
       const embed = new Discord.RichEmbed();
   embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
@@ -42,7 +41,7 @@ client.on("message", msg => {
 
 
 client.on("message", message => {
- if (message.content === "!help") {
+ if (message.content === '!help') {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -78,7 +77,7 @@ message.author.sendEmbed(embed)
 }); 
 
 client.on('message', message => {
-     if (message.content === (prefix + "help")) {
+     if (message.content === (prefix + 'help')) {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#8650a7")
@@ -163,7 +162,7 @@ client.on('message', message => {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = message.content.split(" ").slice(1);
-  if (command == "kick") {
+  if (command == 'kick') {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
   if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
