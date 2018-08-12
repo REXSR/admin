@@ -452,7 +452,7 @@ client.on("guildMemberAdd", member => {
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', welcome);
+    let welcomer = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
