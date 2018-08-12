@@ -410,13 +410,7 @@ Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
 Server Count: __${guild.memberCount}__**`)
 });
-client.on('guildDelete', guild => {
-  client.channels.get("470698398559895572").send(`:negative_squared_cross_mark: **طردوني حرام والله ايش سويت انا
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__ 
-Server Count: __${guild.memberCount}__**`)
-});
+
 
 
 
@@ -519,7 +513,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on('message', message => {
-        if (message.content === 'inv') {
+        if (message.content === '!inv') {
             if(!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
         .setAuthor(`-#| ${message.author.username} |#-`, message.author.avatarURL)      
@@ -618,6 +612,30 @@ client.on('message', message => {
 
 
 
+
+
+client.on('message', message => {
+     if(message.content.startsWith(prefix + "clear")) {
+         var args = message.content.split(" ").slice(1);
+ if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You need MANAGE_MESSAGES permission noob');
+  if (!args[0]) return message.channel.send('You didn\'t provide any number!!!');
+  message.channel.bulkDelete(args[0]).then(() => {
+    const embed = new Discord.RichEmbed()
+      .setColor(0xF16104)
+      .setDescription(`Cleared ${args[0]} messages.`);
+    message.channel.send({ embed });
+    const actionlog = message.guild.channels.find('name', 'log');
+    if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
+    const embedlog = new Discord.RichEmbed()
+      .setDescription('~Purge~')
+      .setColor(0xF16104)
+      .addField('Purged By', `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField('Purged in', message.channel)
+      .addField('Time', message.createdAt);
+    actionlog.send(embedlog);
+  });
+};
+});
 
 
 
