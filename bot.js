@@ -758,8 +758,6 @@ client.on('messageDelete', message => {
 });
 
 
-const Discord = require("discord.js"); // npm i discord.js
-const client = new Discord.Client();
 
 client.on('message' , message => {
     var prefix = "!";
