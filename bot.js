@@ -671,7 +671,7 @@ client.on('message', async message => {
     fs.writeFile("./creditsCode.json", JSON.stringify(userData.credits + amount), (err) => {
     if (err) console.error(err);
     });
-    message.channel.send( | ${message.author.username}, you received your 💴 ${amount} credits!**`).then(() => {
+    message.channel.send('| ${message.author.username}, you received your  ${amount} credits!**`').then(() => {
         coolDown.add(message.author.id);
     });
     setTimeout(() => {
