@@ -59,17 +59,18 @@ members تبي اذا دخل عضو يعطي رتبة سوي رتبة اسمه
 **
 ***__Bot orders__***
 **
-『ping』
-『id』
-『support』 SOON قريبا
-『inv』
-『ban』
-『kick』
-『clear』
-『mute』
-『unmute』
-『topinvite』
-『bc1』
+『ping』لي راية بنقك
+『id』لي رايت حالتك
+『profile』 لي بروفايلك
+『inv』لي دعوة البوت الي سيرفرك
+『ban』لي الباند مع السبب
+『kick』لي الكيك مع السبب
+『clear』لي مسح الشات بعدد
+『mute』لي ميوت الشات
+『unmute』لي فك الميوت
+『topinvite』لي رايت من جاب اعضاء اكثر 
+『bc』لي ارسال برودكاست لي الجميع
+『رابط』 
 **       
 `)
 message.author.sendEmbed(embed)
@@ -105,14 +106,8 @@ client.on("guildMemberAdd", member => {
 })
 
 
-	client.on('message', message => {
-if (message.content.startsWith("ban")) {
-    var mention = message.mentions.members.first();
-    if(!mention) return message.channel.send("يجب منشن العضو");
-    mention.ban("By: " + message.author.tag);
-    message.channel.send("تم أعطاء باند الى : " + mention.tag);
-};
-});			
+
+
 	
 
 
@@ -416,47 +411,14 @@ Server Count: __${guild.memberCount}__**`)
 
 
 
-
-const misaka = new Set();
-    client.on('message', async msg => {
-  if(msg.content.startsWith("رابط")) {
-  if (misaka.has(msg.author.id)) {
-    let misakaemb = new Discord.RichEmbed()
-    .setDescription(`يجب عليك الانتظار 24 ساعه!`)
-    .setColor(`RED`)
-    return msg.channel.send(misakaemb).then(message => {
-     message.delete(10000) 
-    })
-    }
-    misaka.add(msg.author.id);
-   msg.channel.createInvite({
-        thing: true,
-        maxUses: 100,
-        maxAge: 86400,
-  }).then(invite =>
-   msg.author.sendMessage(`
-         <@${msg.author.id}> 
-         **maxUses: 5 **
-         ${invite.url}`)
-  )
-    msg.channel.send(`**:link: جاك على الخاص**`)
-  }
-    setTimeout(() => {
-    },86400000);
-    })
+     
+    
 
 
 
 
 const jimp = require('jimp');   
 const canvas = require("canvas");
-
-
-
-
-
-
-
 const sWlc = {}
 const premium = ['463837201092968448']
 client.on('message', message => {
@@ -484,7 +446,7 @@ client.on("guildMemberAdd", member => {
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', schannel);
+    let welcomer = member.guild.channels.find('name', welcome);
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
@@ -498,42 +460,33 @@ client.on("guildMemberAdd", member => {
          .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:heroo});          
-         
       var Canvas = require('canvas')
       var jimp = require('jimp')
-      
       const w = ['PicsArt_07-17-07.58.02 (1).png'];
-      
               let Image = Canvas.Image,
                   canvas = new Canvas(557, 241),
                   ctx = canvas.getContext('2d');
-  
               fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
                   if (err) return console.log(err)
                   let BG = Canvas.Image;
                   let ground = new Image;
                   ground.src = Background;
                   ctx.drawImage(ground, 0, 0, 557, 241);
-      
       })
-      
                       let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
                       jimp.read(url, (err, ava) => {
                           if (err) return console.log(err);
                           ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                               if (err) return console.log(err);
-      
                                     ctx.font = '30px Arial Bold';
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#FFFFFF";
                                 ctx.fillText(member.user.username, 245, 150);
-                              
                               //NAMEً
                               ctx.font = '30px Arial';
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
-      ctx.fillText(`Welcome To SERVER OUR ${member.guild.name}`, 245, 80);
-      
+      ctx.fillText(`Welcome To SERVER ${member.guild.name}`, 245, 80);
                               //AVATARً
                               let Avatar = Canvas.Image;
                               let ava = new Avatar;
@@ -541,17 +494,11 @@ client.on("guildMemberAdd", member => {
                               ctx.beginPath();
                  ctx.arc(120.8, 120.5, 112.3, 0, Math.PI*2, true);
                    ctx.closePath();
-                   
                                  ctx.clip();
 
                         ctx.drawImage(ava, 7, 8, 227, 225);
                               ctx.closePath();
-
-                            
     welcomer.sendFile(canvas.toBuffer())
-      
-      
-      
       })
       })
       
@@ -594,6 +541,68 @@ return;
         return;
     }
 });
+
+
+
+
+
+   client.on('message', message => {
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let log = client.channels.find("name", "log");
+  if(!log) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+  message.guild.member(user).ban(7, user);
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**اسم | Name**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**من قبل | By**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب | Reason**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
+
+
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 100,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send("تم ارسال الرابط برسالة خاصة")
+message.author.send(**مدة الرابط : يـوم
+عدد استخدامات الرابط : 100**)
+    }
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
