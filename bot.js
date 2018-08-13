@@ -648,8 +648,8 @@ client.on("roleCreate", rc => {
   channel.sendEmbed(embed)
   }
   });
-  //By S Codes
-  client.on("roleDelete",  rd => {
+
+client.on("roleDelete",  rd => {
   const channel = rd.guild.channels.find("name", "log")
   if(channel) {
   var embed = new Discord.RichEmbed()
