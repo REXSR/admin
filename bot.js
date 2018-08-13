@@ -820,7 +820,7 @@ client.on("message", message => {
     points: 0,
     credits: 1,
   };
-fs.writeFile('./profile.json', JSON.stringify(profile), (err) => {
+fs.writeFile('./bot.js', JSON.stringify(profile), (err) => {
 if (err) console.error(err);
 })
 });
