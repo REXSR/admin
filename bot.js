@@ -681,8 +681,6 @@ client.on('guildMemberRemove', member => {
     const channel = member.guild.channels.find('name', 'log');
     if (!channel) return;
     let memberavatar = member.user.avatarURL
-    const fromNow = moment(member.joinedTimestamp).fromNow();
-    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
 	   .setThumbnail(memberavatar)
