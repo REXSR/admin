@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-    client.user.setActivity("By:REX || !help",{type: 'streaming'})
+    client.user.setActivity("By:REX || SRB BOT",{type: 'streaming'})
 });
 
 
@@ -40,51 +40,13 @@ client.on("message", msg => {
 });
 
 
-client.on("message", message => {
- if (message.content === '!help') {
-  const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
 
-***__وصف عن البوت__***
-**
-فيه مانع نشر روابط
-wlc تبي تسوي الترحيب سوي شات اسمه 
-members تبي اذا دخل عضو يعطي رتبة سوي رتبة اسمه
-في ترحيب بالخاص 
-وفي ايضأ مانع السبام اذا حوال يسوي سبام يعطيه ميوت شات
-سيتم اضافة اوامر جديده قريبا باذن الله 
-**
-***__Bot orders__***
-**
-『ping』لي راية بنقك
-『id』لي رايت حالتك
-『user』 لعرض حالتك
-『inv』لي دعوة البوت الي سيرفرك
-『ban』لي الباند مع السبب
-『kick』لي الكيك مع السبب
-『clear』لي مسح الشات بعدد
-『mute』لي ميوت الشات
-『unmute』لي فك الميوت
-『topinvite』لي رايت من جاب اعضاء اكثر 
-『bc』لي ارسال برودكاست لي الجميع
-『رابط』 
-**       
-`)
-message.author.sendEmbed(embed)
-}
-}); 
 
-client.on('message', message => {
-     if (message.content === (prefix + 'help')) {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#8650a7")
-  .addField("Done" , " تــــم ارســالك في الخــاص")
-  message.channel.sendEmbed(embed);
-    }
-});
+
+
+
+     
+    
 
 
 
@@ -447,11 +409,11 @@ const channel = sWlc[message.guild.id].channel
 
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "welcome"
+    channel: "wlc"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', 'welcome');
+    let welcomer = member.guild.channels.find('name', 'wlc');
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
@@ -491,7 +453,7 @@ client.on("guildMemberAdd", member => {
                               ctx.font = '30px Arial';
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
-      ctx.fillText(`Welcome To SERVER ${member.guild.name}`, 245, 80);
+      ctx.fillText(`Welcome To SERVER CLAN SRB ${member.guild.name}`, 245, 80);
                               //AVATARً
                               let Avatar = Canvas.Image;
                               let ava = new Avatar;
@@ -511,18 +473,7 @@ client.on("guildMemberAdd", member => {
       });
 
 
-client.on('message', message => {
-        if (message.content === '!inv') {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(`-#| ${message.author.username} |#-`, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond:Click Here.. !`)
-        .setURL('https://discordapp.com/oauth2/authorize?client_id=463837201092968448&scope=bot&permissions=2146958591')
-        .setThumbnail('https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048')
-        .addField(':small_blue_diamond:Byـ:', '<@' + message.author.id + '>')        
-     message.channel.sendEmbed(embed);
-       }
-   });
+
 
 client.on('message', message => {
     if (message.author.id === client.user.id) return;
