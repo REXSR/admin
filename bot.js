@@ -387,13 +387,13 @@ Server Count: __${guild.memberCount}__**`)
 const jimp = require('jimp');   
 const canvas = require("canvas");
 const sWlc = {}
-const premium = ['463837201092968448']
+const premium = ['477233819171160064']
 client.on('message', message => {
 var prefix = "!";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "welcome"
+    channel: "wlc"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
