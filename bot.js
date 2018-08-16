@@ -246,8 +246,7 @@ client.on("message", message => {
 
 
 
-const ms = require("ms");
-const fs = require('fs');
+
 var user = {};
 var warn = {};
 client.on('message', function(message) {
