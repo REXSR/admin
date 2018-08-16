@@ -392,10 +392,10 @@ client.on('message', message => {
 var prefix = "+";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
-  if(!schat[message.guild.id]) schat[message.guild.id] = {
+  if(!swlc [message.guild.id]) swlc [message.guild.id] = {
     channel: "chat"
 }
-const channel = schat[message.guild.id].channel
+const channel = swlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
