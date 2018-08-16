@@ -648,7 +648,10 @@ client.on("channelCreate",  cc => {
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('SILVER')
        .setDescription(`✏ **تعديل رساله
-ارسلها <@${message.author.id}>                                                                                                                         تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \`${message.cleanContent}\`\n\nبعد التعديل:\n \`${newMessage.cleanContent}\``)
+ارسلها <@${message.author.id}>
+تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \
+`${message.cleanContent}\`\n\nبعد التعديل:\n \`
+${newMessage.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
 
