@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('ready', () => {
-    client.user.setActivity("By:REX || SRB BOT",{type: 'streaming'})
+    client.user.setActivity("CLAN SRB || SRB BOT",{type: 'streaming'})
 });
 
 
@@ -593,16 +593,7 @@ client.on('message', message => {
 
 
 
-   client.on("deleteChannel",  dc => {
-  const channel = dc.guild.channels.find("name", "log")
-  if(channel) {
-  .setTitle(dc.guild.name)
-  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
-  .setColor(`RANDOM`)
-  .setTimestamp(); 
-  channel.sendEmbed(embed)
-  }
-  });
+  
   
   
   
