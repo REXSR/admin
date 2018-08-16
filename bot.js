@@ -408,7 +408,7 @@ const channel = swlc[message.guild.id].channel
 
 
 client.on("guildMemberAdd", member => {
-      if(!schat[member.guild.id]) schat[member.guild.id] = {
+      if(!swlc [member.guild.id]) swlc [member.guild.id] = {
     channel: "chat"
   }
   const channel = schat[member.guild.id].channel
