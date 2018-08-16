@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 
 client.on("message", msg => {
-  if(msg.content.startsWith (prefix + '!id')) {
+  if(msg.content.startsWith (prefix + '+id')) {
     if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
       const embed = new Discord.RichEmbed();
   embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
@@ -150,12 +150,20 @@ client.on('message', message => {
 }
 });
 
-client.on('guildCreate', guild => {
-  var embed = new Discord.RichEmbed()
-  .setColor(0x5500ff)
-  .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
-      guild.owner.send(embed)
+client.on("message", message => {
+            if (message.content.startsWith(prefix + "bcall")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`);
+ message.delete();
+};    
 });
+
+ 
 
 
 
@@ -260,8 +268,8 @@ client.on('message', message => {
         let muterole = message.guild.roles.find("name", "muted")
         let men = message.mentions.users.first()
         if(message.content.startsWith(prefix + "mute")) {
-            if(!men) return message.channel.send("**Do you want me to mute you 🤔 ?, please @mention someone. `Ex. #mute @REX bad boy`**");
-            if(!reason) return message.channel.send("**Do you want me to mute " + men.username + " with no reason ?, `Ex. #mute @xRokz bad boy` or just use `none` for no reason **`")
+            if(!men) return message.channel.send("**منشن شخص`**");
+            if(!reason) return message.channel.send("**Do you want me to mute " + men.username + " with no reason ?, `Ex. #mute @xRokz bad boy` or just use `nano` for no reason **`")
             if(!muterole) {
                 message.guild.createRole({name: "muted", color:"#505f74", permissions: [1115136]})
             }
@@ -293,8 +301,6 @@ client.on('message', message => {
    var role = member.guild.roles.find ('name', 'members');
    member.addRole (role);
 })
-client.on ('guildMemberRemove', member => { 
-})
 
 
 
@@ -325,7 +331,7 @@ client.on('message',message =>{
 
 
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'wlc');
+    let channel = member.guild.channels.find('name', 'chat');
     let memberavatar = member.user.avatarURL
       if (!channel) return; 
     let embed = new Discord.RichEmbed()
@@ -393,7 +399,7 @@ var prefix = "!";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "wlc"
+    channel: "chat"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
@@ -413,7 +419,7 @@ client.on("guildMemberAdd", member => {
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', 'wlc');
+    let welcomer = member.guild.channels.find('name', 'chat');
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
