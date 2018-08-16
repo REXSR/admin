@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '!'
+const prefix = '+'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -124,7 +124,7 @@ client.on('message', message => {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = message.content.split(" ").slice(1);
-  if (command == 'kick') {
+  if (command == '+kick') {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
   if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
@@ -151,7 +151,7 @@ client.on('message', message => {
 });
 
 client.on("message", message => {
-            if (message.content.startsWith(prefix + "bcall")) {
+            if (message.content.startsWith(prefix + "+bcall")) {
                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -370,13 +370,7 @@ client.on('message', message => {
 });
 
 
-client.on('guildCreate', guild => {
-  client.channels.get("470698398559895572").send(`:white_check_mark: **تم اضافة البوت في سيرفر جديد مبروكك
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__ 
-Server Count: __${guild.memberCount}__**`)
-});
+
 
 
 
@@ -395,13 +389,13 @@ const canvas = require("canvas");
 const sWlc = {}
 const premium = ['477233819171160064']
 client.on('message', message => {
-var prefix = "!";
+var prefix = "+";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
-  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
+  if(!schat[message.guild.id]) schat[message.guild.id] = {
     channel: "chat"
 }
-const channel = sWlc[message.guild.id].channel
+const channel = schat[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
@@ -414,11 +408,11 @@ const channel = sWlc[message.guild.id].channel
 
 
 client.on("guildMemberAdd", member => {
-      if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "wlc"
+      if(!schat[member.guild.id]) schat[member.guild.id] = {
+    channel: "chat"
   }
-  const channel = sWlc[member.guild.id].channel
-    const sChannel = sWlc[member.guild.id].channel
+  const channel = schat[member.guild.id].channel
+    const sChannel = schat[member.guild.id].channel
     let welcomer = member.guild.channels.find('name', 'chat');
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
@@ -711,7 +705,7 @@ client.on('messageDelete', message => {
 
 
 client.on('message' , message => {
-    var prefix = "!";
+    var prefix = "+";
 if(message.content.startsWith(prefix+"user")) {
     let user = message.mentions.users.first() || message.author;
     const joineddiscord = (user.createdAt.getDate() + 1) + '-' + (user.createdAt.getMonth() + 1) + '-' + user.createdAt.getFullYear() + ' | ' + user.createdAt.getHours() + ':' + user.createdAt.getMinutes() + ':' + user.createdAt.getSeconds();
@@ -770,14 +764,14 @@ client.on('message', async message => {
      category : 'click here',
       channel : 'click here'
        }
-        if(message.content.startsWith('$temp on')){
+        if(message.content.startsWith('+temp on')){
          if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
           var ggg= message.guild.createChannel('click here', 'category').then(cg => {
            var ccc =message.guild.createChannel('click here', 'voice').then(ch => {
             ch.setParent(cg)
              message.channel.send('**Done ,**')
               client.on('message' , message => {
-               if(message.content === '$temp off') {
+               if(message.content === '+temp off') {
                 if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
                  cg.delete()
                   ch.delete()
@@ -786,7 +780,7 @@ client.on('message', async message => {
                      });
                       const time = temp[message.guild.id].time
                        client.on('message' , message => {
-                        if (message.content.startsWith(prefix + "temptime")) {
+                        if (message.content.startsWith(prefix + "+temptime")) {
                          if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
                           let newTime= message.content.split(' ').slice(1).join(" ")
                           if(!newTime) return message.reply(`**${prefix}temptime <time>  \`1000 = 1s\`**`)
