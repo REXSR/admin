@@ -596,7 +596,6 @@ client.on('message', message => {
 client.on("roleCreate", rc => {
   const channel = rc.guild.channels.find("name", "log") //تقدر تغير اسم الشات
   if(channel) {
-  var embed = new Discord.RichEmbed()
   .setTitle(rc.guild.name)
   .setDescription(`***Created Role Name : *** **${rc.name}** `)
   .setColor(`RANDOM`)
@@ -608,7 +607,6 @@ client.on("roleCreate", rc => {
 client.on("roleDelete",  rd => {
   const channel = rd.guild.channels.find("name", "log")
   if(channel) {
-  var embed = new Discord.RichEmbed()
   .setTitle(rd.guild.name)
   .setDescription(`***Deleted Role Name : *** **${rd.name}** `)
   .setColor(`RANDOM`)
@@ -620,7 +618,6 @@ client.on("roleDelete",  rd => {
 client.on("channelCreate",  cc => {
   const channel = cc.guild.channels.find("name", "log")
   if(channel) {
-  var embed = new Discord.RichEmbed()
   .setTitle(cc.guild.name)
   .setDescription(`***Channel Created Name : *** **${cc.name}** ⬅️`)
   .setColor(`RANDOM`)
@@ -632,7 +629,6 @@ client.on("channelCreate",  cc => {
    client.on("deleteChannel",  dc => {
   const channel = dc.guild.channels.find("name", "log")
   if(channel) {
-  var embed = new Discord.RichEmbed()
   .setTitle(dc.guild.name)
   .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
   .setColor(`RANDOM`)
@@ -649,7 +645,6 @@ client.on("channelCreate",  cc => {
     const channel = message.guild.channels.find('name', 'log');
     if (!channel) return;
 
-    let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('SILVER')
        .setDescription(`✏ **تعديل رساله
