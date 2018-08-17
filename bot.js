@@ -88,10 +88,10 @@ client.on('message', message =>{
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-    let prefix = '!!';
+    let prefix = '+';
     if(cmd === `${prefix}warn`) {
 
-  //!warn @daeshan <reason>
+  //+warn @daeshan <reason>
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("U don't have enough permissions to warn Users!");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.reply("yo i can't find this User");
@@ -419,16 +419,7 @@ client.on('guildMemberAdd', member => {
 
 
 
-client.on('message', message => {
-       if (message.content.startsWith(prefix + 'botserver')) {
-     let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
-  let embed = new Discord.RichEmbed()
-  .setTitle(`${client.guilds.size}سيرفرات `)
-  .setDescription(`${msg}`)
-  .setColor("#ebf442");
-  message.channel.send(embed);
-}
-});
+ 
 
 
 
@@ -625,7 +616,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-     if(message.content.startsWith(prefix + "clear")) {
+     if(message.content.startsWith(prefix + "+clear")) {
          var args = message.content.split(" ").slice(1);
  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You need MANAGE_MESSAGES permission noob');
   if (!args[0]) return message.channel.send('You didn\'t provide any number!!!');
@@ -661,29 +652,14 @@ client.on('message', message => {
 
 
 
-client.on('guildMemberRemove', member => {
-    if (!member || !member.id || !member.guild) return;
-    const guild = member.guild;
-	
-    const channel = member.guild.channels.find('name', 'log');
-    if (!channel) return;
-    let memberavatar = member.user.avatarURL
-    let embed = new Discord.RichEmbed()
-       .setAuthor(`${member.user.tag}`, member.user.avatarURL)
-	   .setThumbnail(memberavatar)
-       .setColor('RED')
-       .setDescription(`📤 <@${member.user.id}> **Leave From Server**\n\n`)
-       .setTimestamp();
-     channel.send({embed:embed});
-});
+
 
 
 
 
 
 client.on('message' , message => {
-    var prefix = "+";
-if(message.content.startsWith(prefix+"user")) {
+if(message.content.startsWith(prefix+"+user")) {
     let user = message.mentions.users.first() || message.author;
     const joineddiscord = (user.createdAt.getDate() + 1) + '-' + (user.createdAt.getMonth() + 1) + '-' + user.createdAt.getFullYear() + ' | ' + user.createdAt.getHours() + ':' + user.createdAt.getMinutes() + ':' + user.createdAt.getSeconds();
     message.delete();
