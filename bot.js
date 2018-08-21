@@ -61,7 +61,7 @@ client.on('message', msg => {
 
 
 
-hero.on('guildMemberAdd',async member => {
+client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
   const w = ['https://cdn.discordapp.com/attachments/480394201675202570/481483455729893398/welcome_4.png'];
