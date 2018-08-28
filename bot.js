@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '#g';
+const prefix = 'r';
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -64,7 +64,7 @@ client.on('message', msg => {
 client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
-  const w = ['https://cdn.discordapp.com/attachments/480394201675202570/481483455729893398/welcome_4.png'];
+  const w = ['./welcome_4.png'];
         let Image = Canvas.Image,
             canvas = new Canvas(800, 300),
             ctx = canvas.getContext('2d');
