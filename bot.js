@@ -64,3 +64,13 @@ if(!xp[message.author.id]){
 
 
 
+
+
+
+
+
+
+
+
+
+client.login(process.env.BOT_TOKEN); 
