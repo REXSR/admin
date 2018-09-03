@@ -106,15 +106,13 @@ if(!xp[message.author.id]){
 
   
 
- @everyone
 
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
 
 client.on('message', msg => {
 
           if(msg.author.bot) return;
 
-          if(msg.content === '$links') {
+          if(msg.content === 'links') {
 
             client.guilds.forEach(g => {
 
@@ -136,11 +134,43 @@ client.on('message', msg => {
 
  
 
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+client.on('message', message => {
 
-وصف الكود :
+    if (!message.guild) return; 
 
-يديك روابط السيرفرات و ايادياتها 
+    if (message.content.startsWith("رابط")) {
+
+        message.channel.createInvite({
+
+        thing: true,
+
+        maxUses: 1,
+
+        maxAge: 86400
+
+    }).then(invite =>
+
+      message.author.sendMessage(invite.url)
+
+    )
+
+  message.channel.send(`** تم أرسال الرابط برسالة خاصة **`)
+
+      message.author.send(`**هذا الرابط لشخص واحد و لمدة 24 ساعة **`)
+
+    }
+
+});
+
+ 
+
+
+
+
+ 
+
+
+
 
  
 
