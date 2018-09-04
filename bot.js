@@ -167,7 +167,7 @@ client.on('message', message => {
           
 
            if (message.content.startsWith(prefix + "id")) {
-           if (message.channel.id !== "481119091214778369") return;
+           if (message.channel.id !== "326101086467522570") return;
             
             if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات ❌`);
 
