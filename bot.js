@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`.help || .invite`,"http://twitch.tv/S-F")
+client.user.setGame(`Great.`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -104,7 +104,7 @@ if(!xp[message.author.id]){
 
 });
 
-  
+   
 
 
 
