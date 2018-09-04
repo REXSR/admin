@@ -211,7 +211,18 @@ var mentionned = message.mentions.members.first();
          
      });
  
- 
+ client.on('message', async message=>{
+    if(message.author.bot) return;
+    var args = message.content.split(' '),mc=message.channel
+ , _point = require('./s.json')
+ if(message.content=="set"){
+ for(var i=0;i<101;i++) _point[i+1] = {name:i+1,points:100-i}
+ fs.writeFile('./s.json',JSON.stringify(_point,null, 5))
+}
+    if(message.content.toLowerCase().startsWith('top')){
+        var _Array = Object.values(_point)
+     message.channel.send(_Array.slice(1,11).map((data,num)=>`**\`${num+1}\`.** ${data.name+` (${data.points})`}`));
+    }});
 
 
 
