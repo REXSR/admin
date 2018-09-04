@@ -138,7 +138,7 @@ client.on('message', message => {
 
     if (!message.guild) return; 
 
-    if (message.content.startsWith("رابط")) {
+    if (message.content.startsWith("الرابط")) {
 
         message.channel.createInvite({
 
