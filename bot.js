@@ -217,7 +217,7 @@ var mentionned = message.mentions.members.first();
 client.on("message", async message => {
             if(!message.channel.guild) return;
             var prefix = ".";
-        if(message.content.startsWith(prefix + 'دعواتي')) {
+        if(message.content.startsWith(prefix + 'invites')) {
         var nul = 0
         var guild = message.guild
         await guild.fetchInvites()
@@ -245,10 +245,6 @@ client.on("message", async message => {
                     }
         }
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-وصف الكود: كود يعرض لك عدد دعواتك في سيرفر
-تم النشر بواسطة: @!MHSTR 2K
-المصدر / الشخص الذي صنع الكود: حقوق alpha codes
 
 
 
