@@ -246,7 +246,7 @@ client.on('message',message =>{
 
   
   client.on('message', message => {
-    if (message.content.startsWith(prefix + "هويتي")) {
+    if (message.content.startsWith(prefix + "هويتي.")) {
 var args = message.content.split(" ").slice(1);
 let user = message.mentions.users.first();
 var men = message.mentions.users.first();
@@ -273,7 +273,15 @@ var id = new  Discord.RichEmbed()
 .addField(`: الرتب`, `${message.guild.members.get(h.id).roles.map(r => `\`${r.name}\``).slice(1).join('\n') || 'لايوجد رتب'}`,true)                                                    
 .setThumbnail(heg.avatarURL);
 message.channel.send(id)
-}       });
+})
+
+}
+
+    
+
+         
+
+     });
   
  
     
