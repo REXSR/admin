@@ -211,18 +211,44 @@ var mentionned = message.mentions.members.first();
          
      });
  
- client.on('message', async message=>{
-    if(message.author.bot) return;
-    var args = message.content.split(' '),mc=message.channel
- , _point = require('./s.json')
- if(message.content=="set"){
- for(var i=0;i<101;i++) _point[i+1] = {name:i+1,points:100-i}
- fs.writeFile('./s.json',JSON.stringify(_point,null, 5))
-}
-    if(message.content.toLowerCase().startsWith('top')){
-        var _Array = Object.values(_point)
-     message.channel.send(_Array.slice(1,11).map((data,num)=>`**\`${num+1}\`.** ${data.name+` (${data.points})`}`));
-    }});
+
+
+
+client.on("message", async message => {
+            if(!message.channel.guild) return;
+            var prefix = ".";
+        if(message.content.startsWith(prefix + 'دعواتي')) {
+        var nul = 0
+        var guild = message.guild
+        await guild.fetchInvites()
+            .then(invites => {
+             invites.forEach(invite => {
+                if (invite.inviter === message.author) {
+                     nul+=invite.uses
+                    }
+                });
+            });
+          if (nul > 0) {
+              console.log(`\n${message.author.tag} has ${nul} invites in ${guild.name}\n`)
+              var embed = new Discord.RichEmbed()
+                  .setColor("#000000")
+                    .addField(`${message.author.username}`, `لقد قمت بدعوة **${nul}** شخص`)
+                          message.channel.send({ embed: embed });
+                      return;
+                    } else {
+                       var embed = new Discord.RichEmbed()
+                        .setColor("#000000")
+                        .addField(`${message.author.username}`, `لم تقم بدعوة أي شخص لهذة السيرفر`)
+
+                       message.channel.send({ embed: embed });
+                        return;
+                    }
+        }
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+وصف الكود: كود يعرض لك عدد دعواتك في سيرفر
+تم النشر بواسطة: @!MHSTR 2K
+المصدر / الشخص الذي صنع الكود: حقوق alpha codes
 
 
 
