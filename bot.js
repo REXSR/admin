@@ -380,7 +380,6 @@ if(!xp[message.author.id]){
 
  
 
-const fs = require("fs");
 const moment = require('moment');
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 client.on("message", message => {
