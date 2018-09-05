@@ -421,7 +421,6 @@ if (err) console.error(err);
 
 
 
-var prefix = "."
 
 let dataPro = JSON.parse(fs.readFileSync('./Storage/walls.json', 'utf8'));
 client.on("message", message => {
