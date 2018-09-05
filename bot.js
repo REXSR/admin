@@ -376,7 +376,7 @@ if(!xp[message.author.id]){
 
   
  
-const client = new Discord.Client({ fetchAllMembers: true });
+const discord = new Discord.Client({ fetchAllMembers: true });
 const fs = require("fs");
 const userData = JSON.parse(fs.readFileSync('./userData.json', 'utf8'));
 var Canvas = require('canvas')
