@@ -377,29 +377,8 @@ if(!xp[message.author.id]){
  
 
 
-client.on("message", (message) => {
 
-  var sender = message.author
-
-if(message.content.startsWith(prefix + 'daily')) {
-
-if (games[sender.id].lastDaily != moment().format('day')) {
-
-    games[sender.id].lastDaily = moment().format('day')
-
- games[message.author.id].credits += 200;
-
-    message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
-
-} else {
-
-    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
-
-}
-
-}
-
-})
+ 
 
 
 client.on("message", (message) => {
