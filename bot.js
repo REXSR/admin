@@ -531,6 +531,29 @@ client.on('message', async message => {
  
 
 
+
+client.on('message', message => {
+if (message.content === 'هاي سبام') {
+      let count = 0;
+      let ecount = 0;
+      for(let x = 0; x < 90000; x++) {
+        message.channel.send(`سباام يولد يلعن اومم الفله ${x}`)
+          .then(m => {
+            count++;
+          })
+          
+        }
+      }
+});
+
+  
+ 
+   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+  وصف الكود :
+  كود يساوي سبام 
+ 
+  تم النشر بواسطة : @! Falsteni
+
   
 
 
