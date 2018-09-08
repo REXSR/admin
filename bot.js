@@ -31,7 +31,7 @@ client.user.setGame(`Great.`,"http://twitch.tv/S-F")
  
  
 
-
+  
 
   
 
@@ -565,7 +565,6 @@ if(message.content.startsWith(prefix + "stopdisco")) {
  
 });
 const config = require('config.json');
-const config = config.prefix 
 
 const allowedUsers = config.allowedUsers;
 const roles = config.roleToDisco;
