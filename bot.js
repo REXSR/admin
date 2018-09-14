@@ -35,47 +35,12 @@ client.user.setGame(`Great.`,"http://twitch.tv/S-F")
 
   
 
-  client.on('message', async message => {
+  
+      
+    
 
-  let messageArray = message.content.split(' ');
+  
 
-  let args = messageArray.slice(1);
-
-  if(message.content.startsWith(prefix + "invites")) {
-
-    if(!args) return message.reply('**حدد اسم دعوة**');
-
-    message.guild.fetchInvites().then(i => {
-
-      let inv = i.get(args[0]);
-
-      if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
-
-      var iNv = new Discord.RichEmbed()
-
-      .setAuthor(message.author.username,message.author.avatarURL)
-
-      .setThumbnail(message.author.avatarURL)
-
-      .addField('# - صاحب الدعوة',inv.inviter,true)
-
-      .addField('# - روم الدعوة',inv.channel,true)
-
-      .addField('# - تاريخ انتهاء الدعوة',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
-
-      .addField('# - تم انشاء الدعوة',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
-
-      .addField('# - مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
-
-      .addField('# - الاستخدامات',inv.uses || inv.maxUses,true)
-
-      message.channel.send(iNv);
-
-    });
-
-  }
-
-});
 
    
 
@@ -342,56 +307,55 @@ var mentionned = message.mentions.members.first();
     });
   });
 
-    
 
-client.on("message", (message) => {
-    var command = message.content.split(" ")[0];
-    command = command.slice(prefix.length);
-    if (!message.content.startsWith(prefix)) return;
-    switch(command) {
-        case "mute" : 
-        if (!message.channel.type =="text") return;
-        if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
-        if (!message.mentions.members.first()) return;
-        message.guild.channels.forEach(c => {
-            c.overwritePermissions(message.mentions.members.first().id, {
-                SEND_MESSAGES : false,
-                CONNECT : false
-            })
-        })
-        json[message.guild.id + message.mentions.members.first().id] = {muted : true};
-        fs.writeFile("json.json", JSON.stringify(json), err => {
-            if (err) console.error(err);
-        });
-        message.channel.send(`** <@${message.mentions.members.first().id}> Muted in the server!🤐**`);
-        break;
-        case "unmute" : 
-        if (!message.channel.type =="text") return;
-        if (!message.member.hasPermission("MANAGE_CHANNELS")) return;
-        if (!message.mentions.members.first()) return;
-        message.guild.channels.forEach(c => {
-            c.overwritePermissions(message.mentions.members.first().id, {
-                SEND_MESSAGES : null,
-                CONNECT : null
-            })
-        })
-        json[message.guild.id + message.mentions.members.first().id] = {muted : false};
-        fs.writeFile("json.json", JSON.stringify(json), err => {
-            if (err) console.error(err);
-        });
-        message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!😀**`);
-    }
-})
 
-client.on("guildMemberAdd", (member) => {
-    if(json[member.guild.id + member.user.id]) {
-        if (json[member.guild.id + member.user.id].muted == true) {
-            member.guild.channels.forEach(c => {
-                c.overwritePermissions(member.user.id, {
-                    SEND_MESSAGES : false,
-                  CONNECT : false
-                })
-            })
+
+client.on("voiceStateUpdate", (old, new1) => {
+
+    var channel = "490153876482293790";
+
+    var role = "party"
+
+    لول(old,new1,channel,role);
+
+});
+
+function لول(o,n,channel,role){
+
+    if (!o.voiceChannel && n.voiceChannel) {
+
+        if (n.voiceChannelID == channel) {
+
+            n.addRole(n.guild.roles.find("name", role));
+
+        };
+
+    } else if (o.voiceChannel && !n.voiceChannel) {
+
+        if (o.voiceChannelID == channel) {
+
+            n.removeRole(n.guild.roles.find("name", role))
+
         }
+
     }
-})
+
+}
+
+
+
+
+
+
+
+
+
+            
+        
+        
+        
+        
+
+
+
+client.login(process.env.BOT_TOKEN);
