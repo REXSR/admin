@@ -307,7 +307,6 @@ var mentionned = message.mentions.members.first();
   
      
     
-const fs = require("fs");
   client.on('message', async message =>{
       let messageArray = message.content.split(" ");
       let cmd = messageArray[0];
@@ -385,7 +384,7 @@ client.on("message", (message) => {
     }
 })
 
-.on("guildMemberAdd", (member) => {
+client.on("guildMemberAdd", (member) => {
     if(json[member.guild.id + member.user.id]) {
         if (json[member.guild.id + member.user.id].muted == true) {
             member.guild.channels.forEach(c => {
