@@ -343,7 +343,6 @@ var mentionned = message.mentions.members.first();
   });
 
     
-var json = JSON.parse(fs.readFileSync("json.json", ("utf8");
 
 client.on("message", (message) => {
     var command = message.content.split(" ")[0];
