@@ -312,7 +312,7 @@ var mentionned = message.mentions.members.first();
 
 client.on("voiceStateUpdate", (old, new1) => {
 
-    var channel = "490153876482293790";
+    var channel = "326102224721936384";
 
     var role = "party"
 
