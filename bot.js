@@ -314,7 +314,7 @@ client.on("voiceStateUpdate", (old, new1) => {
 
     var channel = "326102224721936384";
 
-    var role = "party"
+    var role = "party1"
 
     لول(old,new1,channel,role);
 
@@ -343,13 +343,103 @@ function لول(o,n,channel,role){
 }
 
 
+client.on("voiceStateUpdate", (old, new1) => {
+
+    var channel = "326102224721936384";
+
+    var role = "party2"
+
+    لول(old,new1,channel,role);
+
+});
+
+function لول(o,n,channel,role){
+
+    if (!o.voiceChannel && n.voiceChannel) {
+
+        if (n.voiceChannelID == channel) {
+
+            n.addRole(n.guild.roles.find("name", role));
+
+        };
+
+    } else if (o.voiceChannel && !n.voiceChannel) {
+
+        if (o.voiceChannelID == channel) {
+
+            n.removeRole(n.guild.roles.find("name", role))
+
+        }
+
+    }
+
+}
 
 
+client.on("voiceStateUpdate", (old, new1) => {
+
+    var channel = "326102224721936384";
+
+    var role = "party3"
+
+    لول(old,new1,channel,role);
+
+});
+
+function لول(o,n,channel,role){
+
+    if (!o.voiceChannel && n.voiceChannel) {
+
+        if (n.voiceChannelID == channel) {
+
+            n.addRole(n.guild.roles.find("name", role));
+
+        };
+
+    } else if (o.voiceChannel && !n.voiceChannel) {
+
+        if (o.voiceChannelID == channel) {
+
+            n.removeRole(n.guild.roles.find("name", role))
+
+        }
+
+    }
+
+}
 
 
+client.on("voiceStateUpdate", (old, new1) => {
 
+    var channel = "326102224721936384";
 
+    var role = "party4"
 
+    لول(old,new1,channel,role);
+
+});
+
+function لول(o,n,channel,role){
+
+    if (!o.voiceChannel && n.voiceChannel) {
+
+        if (n.voiceChannelID == channel) {
+
+            n.addRole(n.guild.roles.find("name", role));
+
+        };
+
+    } else if (o.voiceChannel && !n.voiceChannel) {
+
+        if (o.voiceChannelID == channel) {
+
+            n.removeRole(n.guild.roles.find("name", role))
+
+        }
+
+    }
+
+}
             
         
         
