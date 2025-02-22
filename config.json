@@ -1,5 +1,5 @@
 {
-  "token" : "Bot token goes here", //لا تلعب بيها بقيه ثابته
+  "token" : "Bot token goes here", //
   "ms" : 1500,
   "roleToDisco" : ["disco"], // اسم رتبه انت اختارها
   "prefix" : ".",// تقدر تبدلها
